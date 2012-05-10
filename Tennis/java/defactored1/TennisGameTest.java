@@ -13,13 +13,13 @@ import org.junit.runners.Parameterized.Parameters;
 public class TennisGameTest {
 
 	@Test
-	public void gameActuallyUsesTheNamesOfTheFirstPlayer() {
+	public void firstPlayersNameIsUsedWhenGameIsWon() {
 		TennisGame game = new TennisGame("First", "Second");
 		assertNameOfWinningPlayer("First", game);
 	}
 
 	@Test
-	public void gameActuallyUsesTheNamesOfTheSecondPlayer() {
+	public void secondPlayersNameIsUsedWhenGameIsWon() {
 		TennisGame game = new TennisGame("First", "Second");
 		assertNameOfWinningPlayer("Second", game);
 	}
@@ -30,6 +30,26 @@ public class TennisGameTest {
 		assertEquals("Win for " + winningPlayer, game.getScore());
 	}
 	
+	@Test
+	public void firstPlayersNameIsUsedWhenInAdvantage() {
+		TennisGame game = new TennisGame("First", "Second");
+		assertNameOfAdvantagePlayer("First", "Second", game);
+	}
+
+	@Test
+	public void secondPlayersNameIsUsedWhenInAdvantage() {
+		TennisGame game = new TennisGame("First", "Second");
+		assertNameOfAdvantagePlayer("Second", "First", game);
+	}
+
+	private void assertNameOfAdvantagePlayer(String winningPlayer, String loosingPlayer, TennisGame game) {
+		for (int i = 0; i < 3; i++)
+			game.wonPoint(loosingPlayer);
+		for (int i = 0; i < 4; i++)
+			game.wonPoint(winningPlayer);
+		assertEquals("Advantage " + winningPlayer, game.getScore());
+	}
+
 	@Test
 	public void realisticGame() {
 		String p1 = "player1";
