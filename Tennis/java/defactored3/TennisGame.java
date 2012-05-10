@@ -27,7 +27,7 @@ public class TennisGame {
 	}
 	
 	public void wonPoint(String playerName) {
-		if (playerName == "player1")
+		if (p1N.equals(playerName))
 			this.p1 += 1;
 		else
 			this.p2 += 1;
