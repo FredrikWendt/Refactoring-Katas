@@ -94,11 +94,11 @@ public class TennisGame
 		
 		if (P1point>=4 && P2point>=0 && (P1point-P2point)>=2)
 		{
-			score = "Win for player1";
+			score = "Win for " + player1Name;
 		}
 		if (P2point>=4 && P1point>=0 && (P2point-P1point)>=2)
 		{
-			score = "Win for player2";
+			score = "Win for " + player2Name;
 		}
 		return score;
     }
@@ -130,7 +130,7 @@ public class TennisGame
     }
 
 	public void wonPoint(String player) {
-		if (player == "player1")
+		if (player1Name.equals(player))
 			P1Score();
 		else
 			P2Score();
