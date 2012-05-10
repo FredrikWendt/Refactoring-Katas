@@ -53,7 +53,7 @@ public class TennisGame {
 	}
 
 	public void wonPoint(String playerName) {
-		if (playerName == player1Name)
+		if (player1Name.equals(playerName))
 			this.player1Score += 1;
 		else
 			this.player2Score += 1;
