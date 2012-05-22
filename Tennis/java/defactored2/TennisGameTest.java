@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import factored1.TennisGame;
+
 public class TennisGameTest {
 
 	@Test
@@ -130,14 +132,16 @@ public class TennisGameTest {
 			String player1 = "player1";
 			String player2 = "player2";
 			TennisGame game = new TennisGame(player1, player2);
-			for (int i = 0; i < this.player1Score; i++) {
-				game.wonPoint(player1);
-			}
-			for (int i = 0; i < this.player2Score; i++) {
-				game.wonPoint(player2);
+			int maxWinCount = Math.max(player1Score, player2Score);
+			for (int i = 1; i <= maxWinCount; i++) {
+				if (player1Score >= i) {
+					game.wonPoint(player1);
+				}
+				if (player2Score >= i) {
+					game.wonPoint(player2);
+				}
 			}
 			assertEquals(this.expectedScore, game.getScore());
 		}
 	}
-
 }
