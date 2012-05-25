@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import factored1.TennisGame;
+import defactored1.TennisGame;
 
 public class TennisGameTest {
 
